@@ -2,6 +2,16 @@
 #include<stdlib.h>
 
 
+int is_contains(int *arr, int size, int el)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == el)
+			return 1;
+	}
+	return 0;
+}
+
 int *filter_multiple(int arr[], int size)
 {
 	int count = 0;
@@ -16,13 +26,7 @@ int *filter_multiple(int arr[], int size)
 
 	for (int i = 0; i < size; i++)
 	{
-		for (int j = 0; j < size; j++)
-		{
-			if (arr[i] == arr[j])
-				count++;
-		}
-
-		if (count == 1)
+		if (is_contains(new_arr, size, arr[i]) == 0)
 		{
 			new_arr[idx] = arr[i];
 			idx++;
@@ -36,18 +40,17 @@ int *filter_multiple(int arr[], int size)
 
 int main()
 {
-	int array[100], position, c, n;
-	int *p;
+	int array[10] = { 1,1,2,2,3,3 , 4,5,6 };
+	int n = 9;
+	int c = 0;
+	int* p;
 
-
-	printf("Enter the size of the array you want \n");
-	scanf("%d", &n);
-	printf("Enter %d elements\n", n);
-	for (c = 0; c < n; c++)
-		scanf("%d", &array[c]);
 	p = filter_multiple(array, n);
+
+	for (int i = 0; i < n; i++)
+	{
+		printf("%d ", p[i]);
+	}
+	free(p);
 	getchar();
-	free(array);
-
-
 }

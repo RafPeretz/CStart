@@ -111,7 +111,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="test.c" />
+    <ClCompile Include="arrays.c" />
+    <ClCompile Include="delete_array.c" />
+    <ClCompile Include="filter.c" />
+    <ClCompile Include="new_filter.cpp" />
+    <ClCompile Include="pointers.c" />
+    <ClCompile Include="sizeof_test.c" />
+    <ClCompile Include="strlen_test.c" />
+    <ClCompile Include="swap.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

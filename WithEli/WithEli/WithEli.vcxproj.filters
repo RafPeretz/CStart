@@ -15,7 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test.c">
+    <ClCompile Include="new_filter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pointers.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sizeof_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="strlen_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="swap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="arrays.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="delete_array.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filter.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
