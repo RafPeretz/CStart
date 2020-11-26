@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClCompile Include="arrays.c" />
     <ClCompile Include="delete_array.c" />
+    <ClCompile Include="elihagever.c" />
     <ClCompile Include="filter.c" />
     <ClCompile Include="new_filter.cpp" />
     <ClCompile Include="pointers.c" />
