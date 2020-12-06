@@ -6,20 +6,40 @@
 //forward deckaration 
 char *filter_char(char* ch_array,char ch); 
 
-int main ()
+
+int main(int argc, char *argv[])
 {
-	char str[] = "abcd";
-	char ch ='d';
-	int n = strlen(str);
-	int c = 0;
+
+	if (argc > 2)
+	{
+		printf("Error: more than one argument to main\n");
+		return 1;
+	}
+
+	char* to_filter = argv[1];
+
+	printf("to_filter: %s\n", to_filter);
+	goto end;
+
+	char str[20] = "";
+
+	printf("Please enter your string: ");
+	fgets(str, 20, stdin);
+
+	printf("Please enter your char you want to remove: ");
+	char ch = getchar();
+
+
+	
 
 	char* p = filter_char(str,ch);
-
 
 	printf("%s\n", p);
 	free(p);
 
-	return 0;
+	end:
+		printf("END\n");
+		return 0;
 
 }
 
@@ -41,5 +61,4 @@ char *filter_char(char* ch_array,char ch )
 	}
 
 	return new_arr;
-
 }
