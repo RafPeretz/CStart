@@ -12,7 +12,11 @@ int main()
 {
    char string[100];
    int result;
- 
+   char *ch ="rafa";
+   reverse_string(ch);
+   printf("%s\n",ch);
+
+   
    printf("Input a string\n");
       fgets(string,1000,stdin);
 
