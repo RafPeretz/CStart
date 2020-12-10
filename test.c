@@ -18,23 +18,24 @@ void reverse_string(char *string);
 int main()
 {
 
- char string[100];
-   int result;
+	char arr [100];
+	   printf("Enter a string to convert to int \n");
 
-   char *ch ="rafa";
-   reverse_string(ch);
-   printf("%s\n",ch);
- 
-   printf("Input a string\n");
-   fgets(string,1000,stdin);
- 
-   result = isPalindrome(string);
- 
-   if (result == 1)
-      printf("\"%s\" is a palindrome string.\n", string);
-   else
-      printf("\"%s\" isn't a palindrome string.\n", string);
- 
+	fgets(arr,100,stdin);
+	int b = atoi(arr);
+   printf(" your num is :%s\n",arr);
+   b=b*10;
+   printf("%d\n",b);
+
+
+	  //char *num_string=NULL;
+	 // num_string = malloc(sizeof(char));
+
+  // printf("Enter a string to convert to int \n");
+   //fgets(num_string,strlen(num_string),stdin);
+   //atoi(num_string);
+   //printf("%s\n",num_string);
+   //free(num_string);
 }
 
 int isPalindrome(char *s)

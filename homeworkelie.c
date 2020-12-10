@@ -10,13 +10,41 @@ int compare_string(char*, char*);
  
 int main()
 {
+
+
+//test strlen  (ex3)
+
+   char *str= "hey";
+   int size_str=strlen(str);
+   printf("%d\n", size_str);
+
+
+   char arr[10]  ={'a','b','c'};
+   int size_arr =strlen(arr);
+   printf("%d\n", size_arr);
+
+   char arr2[20] = "12345";
+   int size_arr2= strlen(arr2);
+   printf("%d\n",size_arr2);
+
+   /// end test 
+
+
    char string[100];
    int result;
-   char *ch ="rafa";
-   reverse_string(ch);
-   printf("%s\n",ch);
+   //char *ch ="rafa";
+   char *num_string;
 
-   
+   printf("Enter a string to convert to int \n");
+   fgets(num_string,strlen(num_string),stdin);
+   atoi(num_string);
+   printf("%s\n",num_string);
+
+
+  // reverse_string(ch);
+  // printf("%s\n",ch);
+
+
    printf("Input a string\n");
       fgets(string,1000,stdin);
 
@@ -65,16 +93,7 @@ int string_length(char *string)
    return length;
 }
  
-void copy_string(char *target, char *source)
-{
-   while(*source)
-   {
-      *target = *source;
-      source++;
-      target++;
-   }
-   *target = '\0';
-}
+
  
 void reverse_string(char *string)
 {
@@ -118,4 +137,17 @@ int compare_string(char *first, char *second)
 
 
 // ex2
+void copy_string(char *target, char *source)
+{
+   while(*source)
+   {
+      *target = *source;
+      source++;
+      target++;
+   }
+   *target = '\0';
+}
+
+//ex3 
+
 
