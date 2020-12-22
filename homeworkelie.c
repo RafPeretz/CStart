@@ -7,12 +7,18 @@ void copy_string(char*, char*);
 void reverse_string(char*);
 int string_length(char*);
 int compare_string(char*, char*);
+int strlen_raf(char *ch);
  
 int main()
 {
 
 
 //test strlen  (ex3)
+
+   char *ch ="rafa";
+   int size =strlen_raf(ch);
+   printf("%d\n",size);
+
 
    char *str= "hey";
    int size_str=strlen(str);
@@ -149,5 +155,21 @@ void copy_string(char *target, char *source)
 }
 
 //ex3 
+
+
+int strlen_raf(char *ch)
+{
+   int count= 0;
+   
+   while(*ch!='\0')
+   {
+      ch++;
+      count++;
+   }
+
+   return count;
+  
+
+}
 
 

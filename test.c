@@ -9,26 +9,53 @@ int isPalindrome(char *s);
 char *strrev(char *str);
 void copy_string(char *target, char *source);
 void reverse_string(char *string);
-
-
-
+int strlen_raf(char *ch);
 void reverse_string(char *string);
 
 
 int main()
 {
-
-	char arr [100];
-	   printf("Enter a string to convert to int \n");
-
-	fgets(arr,100,stdin);
-	int b = atoi(arr);
-   printf(" your num is :%s\n",arr);
-   b=b*10;
-   printf("%d\n",b);
+ 
 
 
-	  //char *num_string=NULL;
+  char *ch ="rafa";
+   int size =strlen_raf(ch);
+   printf("%d\n",size);
+   char *a = (char*)10;
+   *a = 'h';
+
+   printf("DONE\n");
+
+
+ // ex3 
+
+ 	char string[100];
+ 	int result;
+ 	 printf("Input a string\n");
+      fgets(string,100,stdin);
+     string[strlen(string)-1] = 0; 
+
+ 	
+   result = isPalindrome(string);
+ 
+   if (result == 1)
+      printf("\"%s\" is a palindrome string.\n", string);
+   else
+      printf("\"%s\" isn't a palindrome string.\n", string);
+ 
+   return 0;
+
+	// char arr [100];
+	// printf("Enter a string to convert to int \n");
+
+	// fgets(arr,100,stdin);
+	// int b = atoi(arr);
+ //   printf(" your num is :%s\n",arr);
+ //   b=b*10;
+ //   printf("%d\n",b);
+
+
+	//   char *num_string=NULL;
 	 // num_string = malloc(sizeof(char));
 
   // printf("Enter a string to convert to int \n");
@@ -47,22 +74,22 @@ int isPalindrome(char *s)
   	char *reverse;
 
   	size =strlen(s);
-  	reverse = (char*)malloc(size+1);  
-  	copy_string(reverse, s);
+  	reverse = (char*)malloc(size+1); 
+
+  	copy_string(reverse, s); 
+  	reverse_string(reverse);
 
 	 
 
-  	for (int i = 0; i < size; ++i)
+  	for (int i = 0; i < size; i++)
   	{
-  		for (int j = 0; j < size; j++)
-  		{
-  			
-  			if ((s[i]==reverse[j]))
+  		
+  			if ((s[i]==reverse[i]))
   			{
   				count ++;
   			}
 
-  		}
+  		
   	}
 
   	free(reverse);
@@ -93,16 +120,17 @@ char* strdup(const char* str)
 }
 
 
-void copy_string(char *target, char *source)
+void copy_string(char *target, char *source) // copy_string(buf, 'aba')
 {
    while(*source)
    {
       *target = *source;
-      source++;
+      source++; 
       target++;
    }
    *target = '\0';
 }
+
 char *strrev(char *str)
 {
       char *p1, *p2;
@@ -142,3 +170,20 @@ void reverse_string(char *string)
       end--;
    }
 }
+
+int strlen_raf(char *ch)
+{
+   int count= 0;
+   
+   while(*ch!='\0')
+   {
+      ch++;
+      count++;
+   }
+
+   return count;
+  
+
+}
+
+
