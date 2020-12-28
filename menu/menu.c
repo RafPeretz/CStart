@@ -11,6 +11,8 @@ int cprt(int n);
 int my_get(int n);
 int quit(int n);
 int get_limits();
+void display_menu();
+
 
 typedef struct //class de function
 {
@@ -42,6 +44,20 @@ void display_menu() // affiche le menu
   }
 }
 
+
+int *map(int *array, int arrayLength, int (*f)(int)) // 
+{
+
+  int *mappedArray = (int *)(malloc(arrayLength * sizeof(int)));
+
+  for (int i = 0; i < arrayLength; i++)
+  {
+    mappedArray[i] = f(array[i]);
+
+    return mappedArray;
+  }
+
+}
 int get_limits() // rends la taille du menu
 {
   int i = 0;
@@ -59,27 +75,39 @@ void check_choice(int choice, int limits) //verifie si le choix ce trouve dans l
     printf("ERROR yout choice is not on the menu :(");
 }
 
+
+
 int main()
 {
-  int choice;
-	int upperBound = get_limits();
-	
-  printf("Please make a choice \n");
-  display_menu();
+  int* iarray =(int*)(malloc(4*sizeof(int))); // defini la taille de iarray de 4 et fais apell a la function malloc pour prendre de la place dans le heap
 
-  int len = 4;
-  int arr1[len];
-  int *arr2 = map(arr1, len, my_get);
-  int *arr3 = map(arr2, len, iprt);
-  int *arr4 = map(arr3, len, abs);
-  int *arr5 = map(arr4, len, plus_one);
-  int *arr6 = map(arr5, len, cprt);
-  free(arr2);
-  free(arr3);
-  free(arr4);
-  free(arr5);
-  free(arr6);
+	memset (iarray, 0, sizeof(*iarray)) ; //initialise le array a zero 
+
+	int choice;
+	int size_menu = get_limits();//donne la taille du menu 
+	
+	while (1) // s'arrete quand l'utilisateur apelle la fonction quit
+  { 
+		char number[16];
+		printf("Please choice a function");
+		display_menu(); //affice le menu 
+
+		fgets(number, sizeof(number), stdin); // koleth the choice
+		sscanf(number, "%d", &choice) ;
+		 check_choice(choice, size_menu) ; //verifie si le choix est bon sinon
+		function function = menu[choice] ;
+		int* mappedArray = map(iarray, 4, function.fun); /* evaluation */
+		if (iarray != NULL)
+			free(iarray) ;
+		iarray = mappedArray ;
+		puts ("DONE.\n"); 
+	}  
+	return 0 ;
 }
+
+
+
+
 
 int plus_one(int n) //ajoute 1 a un nombre
 {
@@ -98,7 +126,9 @@ int absolute(int n) //rend la valeur absolue
   }
 }
 
-int iprt(int n) //rints the value of n followed by a new line, and returns n unchanged
+
+
+int iprt(int n) // prints the value of n followed by a new line, and returns n unchanged
 {
   printf("%d \n", n);
   return n;
@@ -114,7 +144,7 @@ int cprt(int n) //  Prints the character of ASCII value n followed by a new line
   return n;
 }
 
-int my_get(int n) //gnores n, reads a line from stdin, and returns a number given in that line
+int my_get(int n) // ignores n, reads a line from stdin, and returns a number given in that line
 {
   char number[16];
   int myNum;
@@ -129,15 +159,5 @@ int quit(int n) // quit le process
   return n;
 }
 
-int *map(int *array, int arrayLength, int (*f)(int)) // 
-{
 
-  int *mappedArray = (int *)(malloc(arrayLength * sizeof(int)));
 
-  for (int i = 0; i < arrayLength; i++)
-  {
-    mappedArray[i] = f(array[i]);
-
-    return mappedArray;
-  }
-}
