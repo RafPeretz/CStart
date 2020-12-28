@@ -10,24 +10,30 @@ char *filter_char(char* ch_array,char ch);
 int main(int argc, char *argv[])
 {
 
-	if (argc > 2)
-	{
-		printf("Error: more than one argument to main\n");
-		return 1;
-	}
+	// if (argc > 2)
+	// {
+	// 	printf("Error: more than one argument to main\n");
+	// 	return 1;
+	// }
 
-	char* to_filter = argv[1];
+	// char* to_filter = argv[1];
 
-	printf("to_filter: %s\n", to_filter);
-	goto end;
+	// printf("to_filter: %s\n", to_filter);
+	// goto end;
 
 	char str[20] = "";
 
 	printf("Please enter your string: ");
-	fgets(str, 20, stdin);
+	scanf("%s", str);
 
 	printf("Please enter your char you want to remove: ");
 	char ch = getchar();
+
+	printf("str = %s\n", str);
+	printf("ch = %c\n", ch);
+
+	return 0;
+
 
 
 	
