@@ -10,8 +10,8 @@ int iprt(int n);
 int cprt(int n);
 int my_get(int n);
 int quit(int n);
-int get_limits();
-void display_menu();
+
+
 
 
 typedef struct //class de function
@@ -45,7 +45,7 @@ void display_menu() // affiche le menu
 }
 
 
-int *map(int *array, int arrayLength, int (*f)(int)) // 
+int *map(int *array, int arrayLength, int (*f)(int)) // map est une function qui permer d'apeller une fonction et de l'utiliser sur chaque index 
 {
 
   int *mappedArray = (int *)(malloc(arrayLength * sizeof(int)));
@@ -69,10 +69,9 @@ int get_limits() // rends la taille du menu
 void check_choice(int choice, int limits) //verifie si le choix ce trouve dans le menu
 {
   if (choice >= 0 && choice <= limits)
-
-    printf("the choice is in the limits of the menu :)");
+    printf("the choice is in the limits of the menu");
   else
-    printf("ERROR yout choice is not on the menu :(");
+    printf("ERROR yout choice is not on the menu");
 }
 
 
@@ -93,14 +92,16 @@ int main()
 		display_menu(); //affice le menu 
 
 		fgets(number, sizeof(number), stdin); // koleth the choice
-		sscanf(number, "%d", &choice) ;
-		 check_choice(choice, size_menu) ; //verifie si le choix est bon sinon
-		function function = menu[choice] ;
+		sscanf(number, "%d", &choice); // sa met le number dans choice
+	  check_choice(choice, size_menu); //verifie si le choix est bon sinon
+
+		function function = menu[choice];
 		int* mappedArray = map(iarray, 4, function.fun); /* evaluation */
+    
 		if (iarray != NULL)
-			free(iarray) ;
-		iarray = mappedArray ;
-		puts ("DONE.\n"); 
+			free(iarray);
+		iarray = mappedArray;
+		printf("DONE.\n"); //
 	}  
 	return 0 ;
 }

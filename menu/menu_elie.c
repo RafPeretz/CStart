@@ -49,7 +49,7 @@ int getUpperBound () {
 	return i-1 ;
 }
 
-int main(int argc, char **argv){
+int main(int argc, char **argv){ // char** 
 	int* iarray =  (int*) (malloc (4*sizeof(int))) ; /* Defines an int array named 'iarray' of length 4. */
 	memset (iarray, 0, sizeof(*iarray)) ; /* Initialize the given array to zero */
 	int choice;
